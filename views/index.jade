@@ -1,0 +1,31 @@
+!!!
+html
+    head
+        title= title
+        link(rel='stylesheet', href='/stylesheets/style.css')
+        script(src='/javascripts/index.js')
+    body
+        div#content
+            div.header
+                p
+                    h2 Base64 Encode & Decode
+            div.main
+                div.decode
+                    p
+                        h3 Decode
+                    form#decode-form(method='post', action='decode')
+                        p
+                            textarea(name='base64String', placeholder='输入base64字符串')
+                        p
+                            input(name='filename', type='text', placeholder='文件名称')
+                            input(type='submit', value='提交')
+                div.encode
+                    p
+                        h3 Encode
+                    form#encode-form(method='post', action='encode', target='encode-result-iframe', enctype='multipart/form-data')
+                        p
+                            input(name='file', type='file', value='选择文件')
+                            input(type='submit', value='提交')
+                    div
+                        iframe#encode-result-iframe(width='500', height='500')
+            div.footer
