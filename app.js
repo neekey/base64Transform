@@ -30,6 +30,7 @@ app.configure('production', function(){
 // Routes
 
 app.get('/', routes.index );
+app.get( '/public/images/*', routes.images )
 app.post( '/decode', routes.decode );
 app.post( '/encode', routes.encode );
 

@@ -10,8 +10,13 @@ module.exports = {
     index: function( req, res ){
         res.render('index', { title: 'Express' });
     },
-    decode: function ( req, res ){
 
+    images: function ( req, res ){
+
+        res.sendfile( req.url.replace( /^\//, '' ) );
+    },
+
+    decode: function ( req, res ){
 
         var path = 'tempfile/';
         var tempName = path + Date.now() + Math.random();
@@ -29,7 +34,13 @@ module.exports = {
                         res.send( JSON.stringify( err ) );
                     }
                     else {
-                        console.log( 'file send success!' );
+                        // 删除文件
+                        FS.unlink( tempName, function( err ){
+
+                            if( err ){
+                                console.log( err );
+                            }
+                        });
                     }
                 });
             }
@@ -39,10 +50,6 @@ module.exports = {
     encode: function( req, res ){
 
         var fileObj = req.files.file;
-        console.log( fileObj );
-        console.log( fileObj.length );
-        console.log( fileObj.filename );
-        console.log( fileObj.mine );
 
         Base64.encode( fileObj.path, function( err, base64String ){
 

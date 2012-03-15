@@ -2,30 +2,41 @@
 html
     head
         title= title
+        link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
         link(rel='stylesheet', href='/stylesheets/style.css')
         script(src='/javascripts/index.js')
     body
-        div#content
-            div.header
+        div.container
+            div.header.hero-unit
+                h1 Base64 Encode & Decode
+                p 将二进制文件和base64字符串互相转化
                 p
-                    h2 Base64 Encode & Decode
-            div.main
-                div.decode
+                    a.btn.btn-primary.btn-large(target='_blank', href="https://github.com/neekey/base64Transform") Fork me on Github >>
+            div.main.row
+                div.decode.span5.offset1
                     p
-                        h3 Decode
-                    form#decode-form(method='post', action='decode')
-                        p
-                            textarea(name='base64String', placeholder='输入base64字符串')
+                        h2 Base64 to Binary
+                        p 将base64字符串转化为二进制文件
+                    form#decode-form.form-vertical(method='post', action='decode')
                         p
                             input(name='filename', type='text', placeholder='文件名称')
-                            input(type='submit', value='提交')
-                div.encode
-                    p
-                        h3 Encode
-                    form#encode-form(method='post', action='encode', target='encode-result-iframe', enctype='multipart/form-data')
                         p
-                            input(name='file', type='file', value='选择文件')
-                            input(type='submit', value='提交')
+                            textarea.decode-textarea.span4(name='base64String', placeholder='输入base64字符串')
+                        p
+                            input.btn.btn-primary(type='submit', value='提交')
+                div.encode.span5
+                    p
+                        h2 Binary to Base64
+                        p 将二进制文件转化为base64字符串
+                    form#encode-form(method='post', action='encode', target='j-encode-result-iframe', enctype='multipart/form-data')
+                        p
+                            a.btn.btn-info.file-upload 选择文件
+                                input#j-file-upload(name='file', type='file', style='width: 100%; height: 100%', value='选择文件')
+                            input.btn.btn-primary.offset2(type='submit', value='提交')
                     div
-                        iframe#encode-result-iframe(width='500', height='500')
-            div.footer
+                        textarea#j-encode-result.encode-textarea.span5.disabled(placeholder='结果将被输出在这里...', disabled='disabled')
+                        iframe#j-encode-result-iframe.hidden(width='500', height='500')
+            footer
+                hr
+                p <small>powered by</small> <a target="_blank" href="http://nodejs.org">NodeJS</a> <small>and</small> <a target="_blank" href="http://twitter.github.com/bootstrap/index.html">Bootstrap</a>
+                p Copyright © neekey( 倪云建 ) ni184775761@gmail.com
