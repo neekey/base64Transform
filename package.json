@@ -2,7 +2,7 @@
     "name": "Base64 Encode & Decode"
   , "version": "0.0.1"
   , "private": true
-  , "main": "app.js"
+  , "main": "./app.js"
   , "dependencies": {
       "express": "2.5.2"
     , "jade": ">= 0.0.1"

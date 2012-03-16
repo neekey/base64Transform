@@ -1,5 +1,6 @@
 (function(){
 
+    //todo 添加html5 拖动文件来encode
     window.onload = function (){
 
         var iframe = document.getElementById( 'j-encode-result-iframe' );
