@@ -34,5 +34,5 @@ app.get( '/public/images/*', routes.images )
 app.post( '/decode', routes.decode );
 app.post( '/encode', routes.encode );
 
-app.listen(3000);
+app.listen(80);
 console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
