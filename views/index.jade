@@ -1,4 +1,4 @@
-!!!
+doctype 5
 html
     head
         title Base64Transform
@@ -15,7 +15,7 @@ html
                     a.btn.btn-primary.btn-large(target='_blank', href="https://github.com/neekey/base64Transform") Fork me on Github >>
             div.main.row
                 div.decode.span5.offset1
-                    p
+                    div
                         h2 Base64 to Binary
                         p 将base64字符串转化为二进制文件
                     form#decode-form.form-vertical(method='post', action='decode')
@@ -26,7 +26,7 @@ html
                         p
                             input.btn.btn-primary(type='submit', value='提交')
                 div.encode.span5
-                    p
+                    div
                         h2 Binary to Base64
                         p 将二进制文件转化为base64字符串
                     form#encode-form(method='post', action='encode', target='j-encode-result-iframe', enctype='multipart/form-data')
